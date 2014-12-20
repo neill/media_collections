@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :media_pages
   end
 
+  match '/users/:user_id/media_pages/new(.:format)', to: 'media_pages#create', via: :post
+
   root 'media_pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

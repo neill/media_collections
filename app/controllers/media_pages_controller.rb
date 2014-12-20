@@ -15,7 +15,7 @@ before_action :find_media_page, only: [:show, :update, :destroy]
         @user = User.find(params[:user_id])
         @media_page = MediaPage.new(media_page_params)
         if @media_page.save
-            redirect_to @media_page
+            redirect_to @user
         else
             render action: 'new'
         end
