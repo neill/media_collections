@@ -3,7 +3,7 @@
     Name: <%= f.text_field :name %> <br>
     Email: <%= f.text_field :email %> <br>
     Password: <%= f.password_field :password %> <br> <br>
-    <%= f.submit :Signup %>
+    <%= f.submit submit_user_btn %>
 <% end %>
 
 <% if @user.errors.any? %>

@@ -1,0 +1,16 @@
+<strong>Viewing user:</strong> <br>
+<%= @user.name %> <br>
+<%= @user.email %> <br> <br>
+
+<strong>Users media:</strong>
+<ul>
+<% @user.media_pages.each do %>
+<li><%= @user.meia_pages.name %> - <%= @user.media_page.content %></li>
+<% end %>
+</ul>
+
+<%= link_to "Add Media to my profile!",  %>
+
+----
+<%= link_to "Update User", edit_user_path %> <br>
+<%= link_to "Home Page", root_path %>

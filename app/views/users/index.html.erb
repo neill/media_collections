@@ -1,0 +1,8 @@
+<h1>Current Users:</h1>
+<% @users.each do |user| %>
+<ul>
+<li><%= link_to user.name, user %></li>
+</ul>
+<% end %>
+<h3>Want to sign up?</h3>
+<%= link_to "Click Here!", new_user_path %>

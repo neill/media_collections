@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:edit, :update, :show]
 
+    def index
+        @users = User.all
+    end
+
     def new
         @user = User.new
     end
@@ -8,7 +12,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            redirect_to user
+            redirect_to @user
         else
             flash[:notice] = "Unable to sign up! Try again"
             render action: 'new'
@@ -23,13 +27,10 @@ class UsersController < ApplicationController
             redirect_to @user
         else
             render action: 'edit'
+        end
     end
 
     def show
-    end
-
-    def index
-        @users = User.all
     end
 
     private

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
     attr_accessor :password, :salt
-    attr_accessible :name, :email, :password
     before_save :encrypt_password
     after_save :clear_password
     has_many :media_pages
