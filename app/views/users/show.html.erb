@@ -4,13 +4,13 @@
 
 <strong>Users media:</strong>
 <ul>
-<% @user.media_pages.each do %>
-<li><%= @user.meia_pages.name %> - <%= @user.media_page.content %></li>
+<% @user.media_pages.each do |media|%>
+<li><%= media.name %> - <%= media.content %></li>
 <% end %>
 </ul>
 
-<%= link_to "Add Media to my profile!",  %>
+<%= link_to "Add Media to my profile!", new_user_media_page_path(@user) %><br><br>
 
-----
+---- <br>
 <%= link_to "Update User", edit_user_path %> <br>
 <%= link_to "Home Page", root_path %>

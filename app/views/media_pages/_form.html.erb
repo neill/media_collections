@@ -1,0 +1,17 @@
+<div>
+<!-- https://github.com/rails/rails/issues/1769 -->
+<!-- Have to specify url for the form because of this issue -->
+<%= form_for @media_page do |f| %>
+    Name: <%= f.text_field :name %> <br>
+    Media content: <%= f.text_field :content %> <br> <br>
+    <%= f.submit submit_content_btn %>
+<% end %>
+
+<% if @media_page.errors.any? %>
+    <ul class="Signup_Errors">
+        <% for message_error in @media_page.errors.full_messages %>
+        <li>* <%= message_error %></li>
+        <% end %>
+    </ul>
+<% end %>
+</div>
