@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar">You are logged in as Someguy. </div>
+<div class="navbar"><% if logged_in? %>
+    You are logged in as <%= link_to current_user.name, current_user %>. | <%= link_to "Log out", logout_path, method: "delete" %>
+<% else %>
+    <%= link_to "Log in", login_path %>
+ Don't have an account? <strong><%= link_to "Sign-up here!", new_user_path %></strong><% end %></div>
 <%= yield %>
+
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 
 </body>
 </html>

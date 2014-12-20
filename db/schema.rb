@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141220185225) do
+ActiveRecord::Schema.define(version: 20141220224424) do
 
   create_table "media_pages", force: true do |t|
     t.string   "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20141220185225) do
     t.datetime "updated_at",         null: false
     t.string   "encrypted_password"
     t.integer  "media_page_id"
+    t.string   "password_digest"
+    t.string   "password"
   end
 
 end

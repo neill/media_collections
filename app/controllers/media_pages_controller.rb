@@ -2,6 +2,7 @@ class MediaPagesController < ApplicationController
 before_action :find_media_page, only: [:show, :update, :destroy]
     def index
         @media_pages = MediaPage.all
+        @users = User.all
     end
 
     def show
@@ -17,6 +18,7 @@ before_action :find_media_page, only: [:show, :update, :destroy]
         if @media_page.save
             redirect_to @user
         else
+            Rails.logger.info(@media_page.errors.inspect)
             render action: 'new'
         end
     end
@@ -35,7 +37,7 @@ before_action :find_media_page, only: [:show, :update, :destroy]
     end
 
     def media_page_params
-        params.require(:media_page).permit(:name, :content).merge(:user_id => @user.id)
+        params.require(:media_page).permit(:name, :content).merge(:user_id => current_user.id)
     end
 
 end

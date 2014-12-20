@@ -9,7 +9,8 @@
 <% end %>
 </ul>
 
-<%= link_to "Add Media to my profile!", new_user_media_page_path(@user) %><br><br>
+<% if logged_in? %><%= link_to "Add Media to my profile!", new_user_media_page_path(@user) %>
+<% else %>You can't add media to this profile.<% end %><br><br>
 
 ---- <br>
 <%= link_to "Update User", edit_user_path %> <br>

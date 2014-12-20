@@ -1,5 +1,18 @@
 <h1>Welcome to Media Collection</h1>
 <p>You can use this tool to manage your media, links, etc. </p>
 
-<h3>Don't have an account?</h3>
-<p><strong><%= link_to "Sign-up here!", new_user_path %></strong></p>
+<% if logged_in? %>
+    <%= link_to "GO TO YOUR MEDIA PAGE", current_user %>
+<% else %>
+    <h3>Log-in!</h3>
+    <p><strong><%= link_to "Click here to log-in!", login_path %></strong></p>
+    <h3>Don't have an account?</h3>
+    <p><strong><%= link_to "Sign-up here!", new_user_path %></strong></p>
+<% end %>
+<br><br>
+<h1>Current Users:</h1>
+<% @users.each do |user| %>
+<ul>
+<li><%= link_to user.name, user %></li>
+</ul>
+<% end %>
