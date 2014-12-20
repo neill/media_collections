@@ -1,0 +1,16 @@
+<div>
+<%= form_for(@user) do |f| %>
+    Name: <%= f.text_field :name %> <br>
+    Email: <%= f.text_field :email %> <br>
+    Password: <%= f.password_field :password %> <br> <br>
+    <%= f.submit :Signup %>
+<% end %>
+
+<% if @user.errors.any? %>
+    <ul class="Signup_Errors">
+        <% for message_error in @user.errors.full_messages %>
+        <li>* <%= message_error %></li>
+        <% end %>
+    </ul>
+<% end %>
+</div>
