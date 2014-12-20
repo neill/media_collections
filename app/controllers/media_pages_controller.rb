@@ -1,0 +1,2 @@
+class MediaPagesController < ApplicationController
+end

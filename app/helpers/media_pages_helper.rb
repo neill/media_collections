@@ -1,0 +1,2 @@
+module MediaPagesHelper
+end
